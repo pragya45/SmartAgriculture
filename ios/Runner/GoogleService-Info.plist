@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>316494236811-1bfkfagequ6fch976a3667ld25pk6erj.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.316494236811-1bfkfagequ6fch976a3667ld25pk6erj</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA9D3mqoxZiFrrRUQmK1Wh7s14YL8iNqlQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>316494236811</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.myAgriProject</string>
+	<key>PROJECT_ID</key>
+	<string>my-smart-agriculture-c9a33</string>
+	<key>STORAGE_BUCKET</key>
+	<string>my-smart-agriculture-c9a33.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:316494236811:ios:3052b3a0a0fbd3d0bd988e</string>
+	<key>DATABASE_URL</key>
+	<string>https://my-smart-agriculture-c9a33-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
