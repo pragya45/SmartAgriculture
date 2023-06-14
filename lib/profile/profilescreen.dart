@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 class ProfileScreen extends StatefulWidget {
@@ -7,9 +9,17 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  User? user;
+  late DocumentSnapshot userData;
   TextEditingController _usernameController = TextEditingController();
+  bool _isEditing = false;
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +76,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
               )
                   : Text(
                 userData.get('username') ?? 'N/A',
+                style: TextStyle(fontSize: 18),
+              ),
+              SizedBox(height: 16),
+              Text(
+                'Email',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 8),
+              Text(
+                user?.email ?? 'N/A',
+                style: TextStyle(fontSize: 18),
+              ),
+              SizedBox(height: 16),
+              Text(
+                'Contact',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 8),
+              Text(
+                'N/A', // Replace with actual contact value
                 style: TextStyle(fontSize: 18),
               ),
               SizedBox(height: 16),
