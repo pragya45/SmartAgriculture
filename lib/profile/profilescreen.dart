@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class ProfileScreen extends StatefulWidget {
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
@@ -7,8 +8,8 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   TextEditingController _usernameController = TextEditingController();
-  bool _isEditing = false;
 
+  @override
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +37,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              CircleAvatar(
+                radius: 60,
+                backgroundColor: Colors.grey,
+                child: Icon(
+                  Icons.person,
+                  size: 100,
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(height: 16),
+              Text(
+                'Username',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               SizedBox(height: 8),
               _isEditing
                   ? TextFormField(
@@ -46,6 +64,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   hintText: 'Enter username',
                 ),
               )
+                  : Text(
+                userData.get('username') ?? 'N/A',
+                style: TextStyle(fontSize: 18),
+              ),
+              SizedBox(height: 16),
             ],
           ),
         ),
