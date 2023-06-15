@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'Login.dart';
+
 class ForgotScreen extends StatefulWidget {
   const ForgotScreen({Key? key}) : super(key: key);
 
@@ -11,6 +13,38 @@ class ForgotScreen extends StatefulWidget {
 
 class _ForgotScreenState extends State<ForgotScreen> {
   final email = TextEditingController();
+
+  @override
+  void dispose() {
+    email.dispose(); // TODO: implement dispose
+    super.dispose();
+  }
+
+  Future passwordReset() async {
+    try {
+      await FirebaseAuth.instance
+          .sendPasswordResetEmail(email: email.text.trim());
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            //has to be valid email address for receiving the email
+            content: Text(' Check your email.'),
+          );
+        },
+      );
+    } on FirebaseAuthException catch (e) {
+      print(e);
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            content: Text(e.message.toString()),
+          );
+        },
+      );
+    }
+  }
 
   final form = GlobalKey<FormState>();
 
@@ -24,6 +58,13 @@ class _ForgotScreenState extends State<ForgotScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Container(
+                  width: double.infinity,
+                  child: Image.asset(
+                    "images/logo.png",
+                    height: 300,
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Container(
@@ -80,6 +121,33 @@ class _ForgotScreenState extends State<ForgotScreen> {
                         ),
                       ),
                     )),
+                SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.greenAccent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                    onPressed: () {
+                      passwordReset();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 25, vertical: 15),
+                      child: Text(
+                        "Back to Login",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                    )),
+                SizedBox(
+                  height: 10,
+                ),
               ],
             ),
           ),
