@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
 export "FLUTTER_ROOT=D:\flutter_windows_3.10.6-stable\flutter"
-export "FLUTTER_APPLICATION_PATH=C:\Users\ACER\OneDrive\Desktop\IOTCode\SmartAgriculture"
+export "FLUTTER_APPLICATION_PATH=C:\Users\ACER\Downloads\my_agri_project\my_agri_project"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=1.0.0"
