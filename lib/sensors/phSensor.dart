@@ -9,37 +9,11 @@ class _PHValueSensorState extends State<PHValueSensor> {
   double pH = 0.0;
   List<Map<String, dynamic>> sensorData = [];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
   @override
   void initState() {
     super.initState();
 
   }
-
-
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,6 +32,14 @@ class _PHValueSensorState extends State<PHValueSensor> {
               ),
             ),
             SizedBox(height: 10),
+            Text(
+              'History',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
           ],
         ),
       ),
