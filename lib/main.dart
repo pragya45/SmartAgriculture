@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'Dashboard.dart';
 import 'login/LoadingScreen.dart';
 import 'firebase_options.dart';
+import 'login/forgotpass.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -51,8 +52,6 @@ class MyApp extends StatelessWidget {
               routes: {
                 "/LoadingScreen": (BuildContext context) => LoadingScreen(),
                 "/forgotpassword": (BuildContext context) => ForgotScreen(),
-                "/profile": (BuildContext context) => ProfileScreen(),
-                "/login": (BuildContext context) => LoginScreens(),
                 "/home": (BuildContext context) => HomePage(),
 
 

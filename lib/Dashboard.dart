@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
-
 class MyApp extends StatelessWidget {
   final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
-    colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue), // Change the primarySwatch color to blue
+    colorScheme: ColorScheme.fromSwatch(
+        primarySwatch: Colors.blue), // Change the primarySwatch color to blue
     hintColor: Colors.greenAccent,
   );
 
   final ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
-    colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue), // Change the primarySwatch color to blue
+    colorScheme: ColorScheme.fromSwatch(
+        primarySwatch: Colors.blue), // Change the primarySwatch color to blue
     hintColor: Colors.black12,
   );
 
@@ -43,9 +44,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _handleMenuOptionSelected(BuildContext context, String value) {
-    switch (value) {
-
-    }
+    switch (value) {}
   }
 
   @override
@@ -57,7 +56,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.green,
         actions: [
           IconButton(
-            icon: Icon(Icons.circle),
+            icon: Icon(Icons.circle), onPressed: () {  },
           ),
           PopupMenuButton<String>(
             onSelected: (value) => _handleMenuOptionSelected(context, value),
@@ -121,6 +120,18 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     const SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        _CardMenu(
+                          onTap: () {
+
+                          },
+                          icon: 'images/soil_moisture.png',
+                          title: 'SOIL MOISTURE',
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),

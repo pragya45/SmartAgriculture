@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
+import '../Dashboard.dart';
+
 
 
 class LoadingScreen extends StatelessWidget {
@@ -21,7 +23,7 @@ class LoadingScreen extends StatelessWidget {
         ],
       ),
       backgroundColor: Colors.white,
-      nextScreen: Homepage(),
+      nextScreen: HomePage(),
       splashIconSize: 600,
       duration: 2000,
       splashTransition: SplashTransition.sizeTransition, //to change the animation.
