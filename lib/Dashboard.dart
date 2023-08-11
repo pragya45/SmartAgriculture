@@ -1,26 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:my_agri_project/profile/profilescreen.dart';
+import 'package:my_agri_project/sensors/phSensor.dart';
+
 
 class MyApp extends StatelessWidget {
-  final ThemeData lightTheme = ThemeData(
-    brightness: Brightness.light,
-    colorScheme: ColorScheme.fromSwatch(
-        primarySwatch: Colors.blue), // Change the primarySwatch color to blue
-    hintColor: Colors.greenAccent,
-  );
-
-  final ThemeData darkTheme = ThemeData(
-    brightness: Brightness.dark,
-    colorScheme: ColorScheme.fromSwatch(
-        primarySwatch: Colors.blue), // Change the primarySwatch color to blue
-    hintColor: Colors.black12,
-  );
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'My Agri Project',
-      theme: lightTheme,
-      darkTheme: darkTheme,
       themeMode: ThemeMode.system,
       home: HomePage(),
     );
@@ -35,16 +22,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool _isDarkMode = true;
-
-  void _toggleTheme() {
-    setState(() {
-      _isDarkMode = !_isDarkMode;
-    });
-  }
 
   void _handleMenuOptionSelected(BuildContext context, String value) {
-    switch (value) {}
+    switch (value) {
+      case 'Profile':
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ProfileScreen()),
+        );
+    }
   }
 
   @override
@@ -55,9 +41,6 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Dashboard'),
         backgroundColor: Colors.green,
         actions: [
-          IconButton(
-            icon: Icon(Icons.circle), onPressed: () {  },
-          ),
           PopupMenuButton<String>(
             onSelected: (value) => _handleMenuOptionSelected(context, value),
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
@@ -68,18 +51,7 @@ class _HomePageState extends State<HomePage> {
                   title: const Text('Profile'),
                 ),
               ),
-              PopupMenuItem<String>(
-                value: 'Light Button',
-                child: ListTile(
-                  leading: const Icon(Icons.lightbulb),
-                  title: const Text('Light Button'),
-                ),
-              ),
             ],
-          ),
-          IconButton(
-            icon: Icon(_isDarkMode ? Icons.light_mode : Icons.dark_mode),
-            onPressed: _toggleTheme,
           ),
         ],
       ),
@@ -125,13 +97,19 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         _CardMenu(
                           onTap: () {
-
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PHValueSensor(),
+                              ),
+                            );
                           },
-                          icon: 'images/soil_moisture.png',
-                          title: 'SOIL MOISTURE',
+                          icon: 'images/phvalue.png',
+                          title: 'pHvalue',
                         ),
                       ],
                     ),
+                    const SizedBox(height: 28),
                   ],
                 ),
               ),
